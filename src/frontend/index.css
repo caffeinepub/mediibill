@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Sora";
+  src: url("/assets/fonts/Sora-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/assets/fonts/JetBrainsMono-VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* MediiBill — Deep Navy + Teal Precision Theme */
+    --background: 0.13 0.018 250;
+    --foreground: 0.93 0.01 220;
+    --card: 0.17 0.022 248;
+    --card-foreground: 0.93 0.01 220;
+    --popover: 0.19 0.025 247;
+    --popover-foreground: 0.93 0.01 220;
+
+    /* Teal as primary action color */
+    --primary: 0.72 0.16 195;
+    --primary-foreground: 0.1 0.02 250;
+
+    --secondary: 0.22 0.03 248;
+    --secondary-foreground: 0.85 0.01 220;
+
+    --muted: 0.2 0.025 248;
+    --muted-foreground: 0.58 0.025 240;
+
+    --accent: 0.25 0.035 245;
+    --accent-foreground: 0.93 0.01 220;
+
+    --destructive: 0.62 0.22 26;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.28 0.03 248;
+    --input: 0.22 0.028 248;
+    --ring: 0.72 0.16 195;
+
+    /* Status colors */
+    --status-paid: 0.7 0.18 150;
+    --status-sent: 0.68 0.16 220;
+    --status-draft: 0.58 0.025 240;
+    --status-overdue: 0.65 0.22 30;
+
+    /* Chart */
+    --chart-1: 0.72 0.16 195;
+    --chart-2: 0.68 0.16 220;
+    --chart-3: 0.7 0.18 150;
+    --chart-4: 0.65 0.22 30;
+    --chart-5: 0.75 0.15 280;
+
+    /* Sidebar */
+    --sidebar: 0.11 0.015 252;
+    --sidebar-foreground: 0.85 0.015 230;
+    --sidebar-primary: 0.72 0.16 195;
+    --sidebar-primary-foreground: 0.1 0.02 250;
+    --sidebar-accent: 0.16 0.022 250;
+    --sidebar-accent-foreground: 0.93 0.01 220;
+    --sidebar-border: 0.22 0.025 250;
+    --sidebar-ring: 0.72 0.16 195;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Sora", system-ui, sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Cabinet Grotesk", system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .font-mono, code, .tabular-nums {
+    font-family: "JetBrains Mono", monospace;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: oklch(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: oklch(var(--border));
+    border-radius: 2px;
+  }
+
+  .glass-card {
+    background: oklch(var(--card) / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(var(--border));
+  }
+
+  .teal-glow {
+    box-shadow: 0 0 20px oklch(var(--primary) / 0.15);
+  }
+
+  .number-cell {
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+}
